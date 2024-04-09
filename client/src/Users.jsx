@@ -76,7 +76,7 @@ function Users() {
                                 <td style={{ display: "flex", justifyContent: "space-between" }}>
     <Link to={`/update/${user._id}`} className="btn btn-primary">Update this record</Link>
     <button style={{ marginLeft: "10px" }} className="btn btn-danger" onClick={(e) => handleDelete(user._id)}>Delete this record</button>
-    <button style={{ marginLeft: "10px" }} className="btn btn-success" onClick={() => downloadRecordAsPDF(user)}>Download as PDF</button>
+    <button style={{ marginLeft: "10px" }} className="btn btn-success btn-yellow-500" onClick={() => downloadRecordAsPDF(user)}>Download as PDF</button>
 </td>
 
 

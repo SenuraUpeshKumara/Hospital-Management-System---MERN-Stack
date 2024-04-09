@@ -13,8 +13,9 @@ function Createuser() {
     const navigate = useNavigate();
 
     const validateItemCode = (value) => {
-        return /^[A-Z]{2}\d{6}$/.test(value);
+        return /^DC\d{6}$/.test(value);
     };
+    
 
     const Submit = (e) => {
         e.preventDefault();
@@ -40,7 +41,7 @@ function Createuser() {
                     <h2 style={{ color: 'black' }}>Add items to inventory</h2><br />
                     <div className='mb-2'>
                         <label htmlFor="code">Item Code</label>
-                        <input type="text" placeholder='Enter code' className='form-control' onChange={(e) => setCode(e.target.value.toUpperCase())} />
+                        <input type="text" placeholder='DC000000' className='form-control' onChange={(e) => setCode(e.target.value.toUpperCase())} />
                     </div>
 
                     <div className='mb-2'>
