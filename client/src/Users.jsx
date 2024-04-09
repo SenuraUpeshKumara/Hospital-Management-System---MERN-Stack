@@ -73,13 +73,12 @@ function Users() {
                                 <td>{user.uprice}</td>
                                 <td>{user.qty}</td>
                                 <td>{user.expdate}</td>
-                                <td>
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Link to={`/update/${user._id}`} className="btn btn-primary">Update</Link>
-        <button className="btn btn-danger" onClick={() => handleDelete(user._id)}>Delete</button>
-        <button className="btn btn-success" onClick={() => downloadRecordAsPDF(user)}>Download as PDF</button>
-    </div>
+                                <td style={{ display: "flex", justifyContent: "space-between" }}>
+    <Link to={`/update/${user._id}`} className="btn btn-primary">Update this record</Link>
+    <button style={{ marginLeft: "10px" }} className="btn btn-danger" onClick={(e) => handleDelete(user._id)}>Delete this record</button>
+    <button style={{ marginLeft: "10px" }} className="btn btn-success" onClick={() => downloadRecordAsPDF(user)}>Download as PDF</button>
 </td>
+
 
 
                             </tr>
