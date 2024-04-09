@@ -39,7 +39,7 @@ function Createuser() {
      <div className='w-50 bg-white rounded p-3 'style={{ fontWeight: 'bold' }}>
 
      <form onSubmit={Submit} >
-            <h2>Add items to inventory</h2><br></br>
+            <h2 style={{color:'black'}}>Add items to inventory</h2><br></br>
             <div className='mb-2'>
                 <label htmlFor="code">Item Code</label>
                 <input type="text" placeholder='Enter code' className='form-control'
