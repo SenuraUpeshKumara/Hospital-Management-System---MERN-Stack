@@ -31,7 +31,7 @@ function Updateuser() {
   const Update =(e) => {
     e.preventDefault();
 
-    axios.put('http://localhost:3001/updateuser/'+id, { code,name,uprice,qty,expdate })
+    axios.put('http://localhost:3001/updateuser/'+ id, { code,name,uprice,qty,expdate })
         .then(result => {
             console.log(result)
             navigate('/')
