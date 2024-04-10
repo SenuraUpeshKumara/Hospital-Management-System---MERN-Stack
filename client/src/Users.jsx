@@ -31,7 +31,7 @@ function Users() {
         // Add title
         pdf.setTextColor("#000000");
         pdf.setFontSize(18);
-        pdf.text("Drugs Information", 105, 20, { align: 'center' });
+        pdf.text("Drugs Information - Inventory Report", 105, 20, { align: 'center' });
 
         // Add user details
         pdf.setFontSize(12);
@@ -68,11 +68,13 @@ function Users() {
                     <tbody>
                         {users.map((user) => (
                             <tr key={user._id}>
+                            
                                 <td>{user.code}</td>
                                 <td>{user.name}</td>
                                 <td>{user.uprice}</td>
                                 <td>{user.qty}</td>
                                 <td>{user.expdate}</td>
+
                                 <td style={{ display: "flex", justifyContent: "space-between" }}>
     <Link to={`/update/${user._id}`} className="btn btn-primary">Update this record</Link>
     <button style={{ marginLeft: "10px" }} className="btn btn-danger" onClick={(e) => handleDelete(user._id)}>Delete this record</button>
