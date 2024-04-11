@@ -50,11 +50,11 @@ function Users() {
     };
 
     return (
-        <div className="d-flex vh-100 justify-content-center align-items-center" style={{ backgroundColor: '#e9ecef' }}>
-            <div className='w-90 rounded p-4' style={{ backgroundColor: '#fff' }}>
-                <Link to='/Createuser' className="btn btn-primary">Add New Inventory Item</Link>
+        <div className="d-flex vh-100 justify-content-center align-items-center" style={{ backgroundColor: '#fff' }}>
+            <div className='w-90 rounded p-4' style={{ backgroundColor: '#e9ecef' }}>
+                <Link to='/Createuser' className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Add New Inventory Item</h7></Link>
                 <br /><br />
-                <table className="table">
+                <table className="table table-striped">
                     <thead>
                         <tr>
                             <th className="col">Drug Code</th>
@@ -76,9 +76,9 @@ function Users() {
                                 <td>{user.expdate}</td>
 
                                 <td style={{ display: "flex", justifyContent: "space-between" }}>
-    <Link to={`/update/${user._id}`} className="btn btn-primary">Update this record</Link>
+    <Link to={`/update/${user._id}`} className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Update this record</h7></Link>
     <button style={{ marginLeft: "10px" }} className="btn btn-danger" onClick={(e) => handleDelete(user._id)}>Delete this record</button>
-    <button style={{ marginLeft: "10px" }} className="btn btn-success btn-yellow-500" onClick={() => downloadRecordAsPDF(user)}>Download as PDF</button>
+    <button style={{ marginLeft: "10px" ,backgroundColor: '#001f3f'}} className="btn btn-light" onClick={() => downloadRecordAsPDF(info)}><h7 style={{ color: 'white' }}>Download as PDF</h7></button>
 </td>
 
 
