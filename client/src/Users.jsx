@@ -76,9 +76,9 @@ function Users() {
                                 <td>{user.expdate}</td>
 
                                 <td style={{ display: "flex", justifyContent: "space-between" }}>
-    <Link to={`/update/${user._id}`} className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Update this record</h7></Link>
-    <button style={{ marginLeft: "10px" }} className="btn btn-primary" onClick={(e) => handleDelete(user._id)}>Delete this record</button>
-    <button style={{ marginLeft: "10px" ,backgroundColor: '#001f3f'}} className="btn btn-light" onClick={() => downloadRecordAsPDF(info)}><h7 style={{ color: 'white' }}>Download as PDF</h7></button>
+    <Link to={`/update/${user._id}`} className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Update</h7></Link>
+    <button style={{ marginLeft: "10px" }} className="btn btn-primary" onClick={(e) => handleDelete(user._id)}>Delete</button>
+    <button style={{ marginLeft: "10px" ,backgroundColor: '#001f3f'}} className="btn btn-light" onClick={() => downloadRecordAsPDF(user)}><h7 style={{ color: 'white' }}>Download as PDF</h7></button>
 </td>
 
 
