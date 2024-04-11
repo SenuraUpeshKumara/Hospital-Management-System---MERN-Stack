@@ -37,33 +37,33 @@ function Createuser() {
         <div className='d-flex vh-100 justify-content-center align-items-center' style={{ backgroundColor: '#e9ecef'}}>
             <div className='w-50 bg-white rounded p-3' style={{ fontWeight: 'bold' }}>
                 <form onSubmit={Submit}>
-                    <h2 style={{ color: 'black' }}>Add New Drugs</h2><br />
+                    <h2 style={{ color: 'black' ,fontWeight: 'bold'}}>Add New Drugs</h2><br />
                     <div className='mb-2'>
-                        <label htmlFor="code">Drug Code</label>
-                        <input type="text" placeholder='DC000000' className='form-control' onChange={(e) => setCode(e.target.value.toUpperCase())} />
+                        <label htmlFor="code"><h7 style={{ color: 'black' ,fontWeight: 'bold'}}>Drug Code</h7></label>
+                        <input type="text" placeholder='DC000000' className='form-control' onChange={(e) => setCode(e.target.value.toUpperCase())} required/>
                     </div>
 
                     <div className='mb-2'>
-                        <label htmlFor="name">Drug Name</label>
+                        <label htmlFor="name"><h7 style={{ color: 'black' ,fontWeight: 'bold'}}>Drug Name</h7></label>
                         <input type="text" placeholder='Enter drug Name' className='form-control' onChange={(e) => setName(e.target.value)} required />
                     </div>
 
                     <div className='mb-2'>
-                        <label htmlFor="uprice">Unit Price</label>
+                        <label htmlFor="uprice"><h7 style={{ color: 'black' ,fontWeight: 'bold'}}>Unit Price</h7></label>
                         <input type="text" placeholder='10.00' className='form-control' onChange={(e) => setUprice(e.target.value)} required />
                     </div>
 
                     <div className='mb-2'>
-                        <label htmlFor="qty">Quantity</label>
+                        <label htmlFor="qty"><h7 style={{ color: 'black' ,fontWeight: 'bold'}}>Quantity</h7></label>
                         <input type='text' placeholder='100' className='form-control' onChange={(e) => setQty(e.target.value)} required />
                     </div>
 
                     <div className='mb-2'>
-                        <label htmlFor="expdate">Expiry Date</label>
+                        <label htmlFor="expdate"><h7 style={{ color: 'black' ,fontWeight: 'bold'}}>Expiry Date</h7></label>
                         <input type="date" placeholder='' className='form-control' onChange={(e) => setExpdate(e.target.value)} required />
                     </div>
                     <br />
-                    <button className='btn btn-success bg-primary rounded-2'>Submit</button>
+                    <button className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Submit</h7></button>
                 </form>
                
             </div>
