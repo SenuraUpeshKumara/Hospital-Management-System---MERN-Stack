@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #1d2634;
-  color: #9e9ea4;
+  background-color: #ffffff;
+  color: #000000;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -15,9 +15,11 @@ body {
   vertical-align: middle;
   line-height: 1px;
   font-size: 26px;
+  
 }
 .icon, .icon_header {
   margin-right: 5px;
+  
 }
 
 .close_icon {
@@ -57,7 +59,7 @@ body {
 #sidebar {
   grid-area: sidebar;
   height: 100%;
-  background-color: #263043;
+  background-color: #0d0080;
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -79,6 +81,8 @@ body {
   margin-top: 15px;
   font-size: 20px;
   font-weight: 700;
+  color: aliceblue;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .sidebar-list {
@@ -98,7 +102,7 @@ body {
 
 .sidebar-list-item > a {
   text-decoration: none;
-  color: #9e9ea4;
+  color: #ffffff;
 }
 
 .sidebar-responsive {
@@ -126,6 +130,8 @@ body {
 .main-title {
   display: flex;
   justify-content: space-between;
+  font-family:'Times New Roman', Times, serif;
+  color: black;
 }
 
 .main-cards {
@@ -141,22 +147,24 @@ body {
   justify-content: space-around;
   padding: 8px 15px;
   border-radius: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
 }
 
 .card:first-child {
-  background-color: #001f74;
+  background-color: #0084ff;
 }
 
 .card:nth-child(2) {
-  background-color: #001f74;
+  background-color: #0084ff;
 }
 
 .card:nth-child(3) {
-  background-color: #001f74;
+  background-color: #0084ff;
 }
 
 .card:nth-child(4) {
-  background-color: #001f74;
+  background-color: #0084ff;
 }
 
 .card-inner {
@@ -175,6 +183,7 @@ body {
   gap: 20px;
   margin-top: 60px;
   height: 300px;
+  color: #000000;
 }
 
 /* End Main  */

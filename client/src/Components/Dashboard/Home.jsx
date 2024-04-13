@@ -57,7 +57,7 @@ function Home() {
   return (
     <main className='main-container'>
         <div className='main-title'>
-            <h3>INVENTORY DASHBOARD</h3>
+            <h3>INVENTORY DASHBOARD - Care Central Hospital Management System</h3>
         </div>
 
         <div className='main-cards'>

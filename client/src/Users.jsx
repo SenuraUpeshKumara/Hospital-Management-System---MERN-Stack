@@ -5,6 +5,7 @@ import jsPDF from 'jspdf';
 
 function Users() {
     const [users, setUsers] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:3001')
@@ -48,12 +49,32 @@ function Users() {
 
         pdf.save(`${user.name}.pdf`);
     };
+    
+    const filteredUsers = users.filter(user =>
+        user.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <div className="d-flex vh-100 justify-content-center align-items-center" style={{ backgroundColor: '#fff' }}>
             <div className='w-90 rounded p-4' style={{ backgroundColor: '#e9ecef' }}>
                 <Link to='/Createuser' className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Add New Drug Stocks</h7></Link>
                 <br /><br />
+
+                <input
+                    type="text"
+                    placeholder="Search by drug name"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    style={{
+                        padding: '10px',
+                        borderRadius: '5px',
+                        border: '1px solid #ccc',
+                        boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.1)',
+                        width: '100%',
+                        marginBottom: '10px' // Adjust this value to add spacing between the input field and the table
+                    }}
+                />
+                <br></br><br></br>
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -66,7 +87,7 @@ function Users() {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user) => (
+                        {filteredUsers.map((user) => (
                             <tr key={user._id}>
                             
                                 <td>{user.code}</td>

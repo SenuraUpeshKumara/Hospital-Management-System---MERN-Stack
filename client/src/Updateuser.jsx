@@ -41,7 +41,7 @@ function Updateuser() {
 
   return (
     <div className='d-flex vh-100 justify-content-center align-items-center' style={{ backgroundColor: '#e9ecef'}}>
-      <div className='w-50 bg-white rounded p-3 'style={{ fontWeight: 'bold' }}>
+      <div className='w-50 bg-white rounded p-3 'style={{ fontWeight: 'bold' ,color: 'black'}}>
 
         <form  onSubmit={Update}>
              <h2>Update Inventory Details </h2><br></br>
@@ -66,7 +66,7 @@ function Updateuser() {
                <label htmlFor="">Expiration Date</label>
                <input type="date" placeholder="" className="form-control" value={expdate} onChange={(e) => setExpdate(e.target.value)}/></div>
                <br></br>
-           <button className="btn btn-success bg-primary  rounded-3">Update</button>
+           <button className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Update</h7></button>
        </form>
        </div>
        </div>
