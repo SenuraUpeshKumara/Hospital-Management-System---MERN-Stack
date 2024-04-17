@@ -15,13 +15,37 @@ function Createuser() {
     const validateItemCode = (value) => {
         return /^DC\d{6}$/.test(value);
     };
+    const validateDrugName = (value) => {
+        return /^[a-zA-Z]+$/.test(value.trim());
+    };
     
+    const validateUnitPrice = (value) => {
+        return /^\d+(\.\d{2})?$/.test(value);
+    };
+    
+    const validateQuantity = (value) => {
+        return /^[1-9]\d*$/.test(value);
+    };
 
     const Submit = (e) => {
         e.preventDefault();
 
         if (!validateItemCode(code)) {
             alert('Invalid/missing Supplier ID');
+            return;
+        }
+        if (!validateDrugName(name)) {
+            alert('Invalid/missing Drug Name');
+            return;
+        }
+
+        if (!validateUnitPrice(uprice)) {
+            alert('Invalid Unit Price');
+            return;
+        }
+
+        if (!validateQuantity(qty)) {
+            alert('Invalid Quantity');
             return;
         }
 

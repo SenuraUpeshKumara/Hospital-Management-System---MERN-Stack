@@ -108,11 +108,9 @@ function Users() {
                             </tr>
                         ))}
                     </tbody>
-                    <br></br><br></br>
+                   
                     
                 </table>
-                {!isValid && <p style={{ color: 'red' }}>Please enter a valid name with two parts separated by a space.</p>}
- 
             </div>
         </div>
     );

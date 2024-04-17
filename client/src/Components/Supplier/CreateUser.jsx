@@ -17,6 +17,12 @@ function CreateUser() {
     const validateItemCode = (value) => {
         return /^SU\d{6}$/.test(value);
     };
+    const validateSupplierName = (value) => {
+        return /^[a-zA-Z\s]+$/.test(value);
+    };
+    const validateDistrict = (value) => {
+        return /^[a-zA-Z\s]+$/.test(value);
+    };
     
 
     const validateEmail = (email) => {
@@ -29,6 +35,10 @@ function CreateUser() {
 
         if (!validateItemCode(sid)) {
             alert('Invalid/missing Supplier ID');
+            return;
+        }
+        if (!validateSupplierName(name)) {
+            alert('Invalid/missing Supplier Name');
             return;
         }
 

@@ -28,6 +28,22 @@ function UpdateUser() {
             .catch(err => console.log(err));
     }, [])
 
+    const validateItemCode = (value) => {
+        return /^SU\d{6}$/.test(value);
+    };
+    const validateSupplierName = (value) => {
+        return /^[a-zA-Z\s]+$/.test(value);
+    };
+    const validateDistrict = (value) => {
+        return /^[a-zA-Z\s]+$/.test(value);
+    };
+    
+
+    const validateEmail = (email) => {
+        const regex = /\S+@\S+\.\S+/;
+        return regex.test(email);
+    };
+
     const Update = (e) => {
         e.preventDefault();
 
@@ -37,7 +53,22 @@ function UpdateUser() {
                 navigate('/');
             })
             .catch(err => console.log(err));
-
+            
+            if (!validateItemCode(sid)) {
+                alert('Invalid/missing Supplier ID');
+                return;
+            }
+            if (!validateSupplierName(name)) {
+                alert('Invalid/missing Supplier Name');
+                return;
+            }
+    
+            if (contact.length !== 10 || !(/^\d+$/.test(contact))) {
+                alert('Contact number must contain 10 digits');
+                return;
+            }
+    
+            
             if (!validateEmail(email)) {
                 setEmailError('Email must be in a valid format');
                 return;
