@@ -61,7 +61,7 @@ function Infos() {
     );
 
 return (
-    <div className="d-flex vh-100 justify-content-center align-items-center" style={{ backgroundColor: '#A9A9A9' }}>
+    <div className="d-flex vh-100 justify-content-center align-items-center" style={{ backgroundColor: '#A9A9A9client' }}>
     <div className='w-90 rounded p-4' style={{ backgroundColor: '#e9ecef' }}>
            <Link to="/CreateInfo" className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Add Entry</h7></Link>
         
