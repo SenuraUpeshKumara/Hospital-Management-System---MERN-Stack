@@ -1,0 +1,13 @@
+/* Add the following custom CSS to your CSS file */
+.btn-navy {
+    background-color: #001f3f; /* Navy Blue background color */
+    border-color: #001f3f; /* Navy Blue border color */
+    color: #ffffff; /* Text color */
+}
+
+/* Hover state */
+.btn-navy:hover {
+    background-color: #003366; /* Darker shade of Navy Blue on hover */
+    border-color: #003366; /* Darker shade of Navy Blue border on hover */
+    color: #ffffff; /* Text color on hover */
+}

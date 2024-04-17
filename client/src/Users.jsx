@@ -8,7 +8,7 @@ function Users() {
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:3001')
+        axios.get('http://localhost:3001/Users')
             .then(result => setUsers(result.data))
             .catch(err => console.log(err));
     }, []);
@@ -55,7 +55,7 @@ function Users() {
     );
 
     return (
-        <div className="d-flex vh-100 justify-content-center align-items-center" style={{ backgroundColor: '#fff' }}>
+        <div className="d-flex vh-100 justify-content-center align-items-center" style={{ backgroundColor: '#A9A9A9' }}>
             <div className='w-90 rounded p-4' style={{ backgroundColor: '#e9ecef' }}>
                 <Link to='/Createuser' className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Add New Drug Stocks</h7></Link>
                 <br /><br />
@@ -98,8 +98,9 @@ function Users() {
 
                                 <td style={{ display: "flex", justifyContent: "space-between" }}>
     <Link to={`/update/${user._id}`} className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Update</h7></Link>
-    <button style={{ marginLeft: "10px" }} className="btn btn-primary" onClick={(e) => handleDelete(user._id)}>Delete</button>
+    <button style={{ marginLeft: "10px" }} className="btn btn-danger" onClick={(e) => handleDelete(user._id)}>Delete</button>
     <button style={{ marginLeft: "10px" ,backgroundColor: '#001f3f'}} className="btn btn-light" onClick={() => downloadRecordAsPDF(user)}><h7 style={{ color: 'white' }}>Download as PDF</h7></button>
+   
 </td>
 
 
@@ -107,7 +108,11 @@ function Users() {
                             </tr>
                         ))}
                     </tbody>
+                    <br></br><br></br>
+                    
                 </table>
+                {!isValid && <p style={{ color: 'red' }}>Please enter a valid name with two parts separated by a space.</p>}
+ 
             </div>
         </div>
     );

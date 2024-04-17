@@ -31,12 +31,12 @@ function sidebar({openSidebarToggle, OpenSidebar}) {
                 </a>
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
+                <a href="/Suppliers">
                     <BsPeopleFill className='icon'/> Suppliers
                 </a>
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
+                <a href="/Info">
                     <BsListCheck className='icon'/> Supplier Banking
                 </a>
             </li>

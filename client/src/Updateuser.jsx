@@ -44,14 +44,14 @@ function Updateuser() {
       <div className='w-50 bg-white rounded p-3 'style={{ fontWeight: 'bold' ,color: 'black'}}>
 
         <form  onSubmit={Update}>
-             <h2>Update Inventory Details </h2><br></br>
+        <h2 style={{ color: 'black', fontWeight:'bold'}}>Update Inventory Details </h2><br></br>
 
              <div className="mb-2">
-               <label htmlFor="">Item Code</label>
+               <label htmlFor="">Drug Code</label>
                <input type="text" className="form-control" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())}/>
            </div>
            <div className="mb-2">
-               <label htmlFor="">Item Name</label>
+               <label htmlFor="">Drug Name</label>
                <input type="text" placeholder="Enter drug name" className="form-control" value={name} onChange={(e) => setName(e.target.value)}/>
            </div>
            <div className="mb-2">
