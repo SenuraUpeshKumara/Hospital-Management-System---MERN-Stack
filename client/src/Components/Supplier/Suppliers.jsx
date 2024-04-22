@@ -6,12 +6,22 @@ import jsPDF from 'jspdf';
 function Suppliers() {
     const [suppliers, setSuppliers] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [currentTime, setCurrentTime] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:3001/Suppliers')
             .then(result => setSuppliers(result.data))
             .catch(err => console.log(err));
+
+            const intervalId = setInterval(() => {
+                const now = new Date();
+                setCurrentTime(now.toLocaleString());
+            }, 1000);
+    
+            return () => clearInterval(intervalId);
     }, []);
+
+    
 
     const handleDelete = (id) => {
         axios.delete('http://localhost:3001/deleteSupplier/' + id)
@@ -59,9 +69,13 @@ function Suppliers() {
     );
 
     return (
-        
-        <div className="d-flex vh-100 justify-content-center align-items-center" style={{ backgroundColor: '#A9A9A9' }}>
-            <div className='w-90 rounded p-4' style={{ backgroundColor: '#e9ecef' }}>
+
+         
+
+        <div className="d-flex vh-100 justify-content-center align-items-center" style={{ background: 'linear-gradient(to top, white, navy)' }}>
+    
+            <div className='w-90 rounded p-4' style={{ background: 'linear-gradient(to top, navy, white)'}}>
+               
                 <Link to="/Createsupplier" className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Add Entry</h7></Link>
                 
                 <br/><br/>
@@ -80,7 +94,20 @@ function Suppliers() {
                         marginBottom: '10px'
                     }}
                 /><br></br><br></br>
-                <table className="table table-striped">
+
+<center><div style={{ backgroundColor: 'lavender', padding: '10px', borderRadius: '10px' }}>
+    <p style={{ color: 'green', margin: '0', fontWeight: 'bold', fontStyle: 'italic' }}>
+        Total Record Count: <h1><b>{filteredSuppliers.length}</b></h1>
+        </p>
+  
+        <h3 style={{ background: 'linear-gradient(to bottom, papayawhip, white)' , fontWeight:'bold'}}>{currentTime} - Care Central - Supplier Management</h3>
+     
+    </div></center>
+
+
+                 <br></br>
+
+              <h6>  <table className="table table-striped">
                     <thead>
                         <tr>
                             <th className="col">Supplier ID</th>
@@ -89,6 +116,7 @@ function Suppliers() {
                             <th className="col">District</th>
                             <th className="col">Email</th>
                             <th className="col">Contact</th>
+                           
                             <th className="col">Action</th>
                         </tr>
                     </thead>
@@ -101,15 +129,16 @@ function Suppliers() {
                                 <td>{supplier.district}</td>
                                 <td>{supplier.email}</td>
                                 <td>{supplier.contact}</td>
+                        
                                 <td style={{ display: "flex", justifyContent: "space-between" }}>
                                     <Link to={`/UpdateDeleteSupplier/${supplier._id}`} className='btn btn-light rounded-2' style={{ backgroundColor: '#001f3f'}}><h7 style={{ color: 'white' }}>Update</h7></Link>
                                     <button style={{ marginLeft: "10px" }} className='btn btn-danger' onClick={(e) => handleDelete(supplier._id)}>Delete</button>
-                                    <button style={{ marginLeft: "10px", backgroundColor: '#001f3f' }} className="btn btn-light" onClick={() => downloadRecordAsPDF(supplier)}><h7 style={{ color: 'white' }}>Download as a PDF</h7></button>
+                                    <button style={{ marginLeft: "10px", backgroundColor: '#001f3f' }} className="btn btn-light" onClick={() => downloadRecordAsPDF(supplier)}><h7 style={{ color: 'white' }}>Download</h7></button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </table></h6>
             </div>
         </div>
     );

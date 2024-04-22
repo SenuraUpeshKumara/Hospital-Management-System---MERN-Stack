@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import { v4 as uuidv4 } from 'uuid';
 
 function CreateUser() {
-    const [sid,setSid] = useState('');
+    
+    const navigate = useNavigate();
+
+        // Generate a short UUID with 6 digits and capitalize the first two letters
+        const generateShortUUID = () => {
+            const uuid = uuidv4().toUpperCase(); // Generate a UUID and convert to uppercase
+            return uuid.substr(0, 6); // Take the first 6 characters
+        };
+
+    const [sid, setSid] = useState(generateShortUUID());
     const [name,setName] = useState('');
     const [address,setAddress] = useState('');
     const [district,setDistrict] = useState('');
     const [email,setEmail] = useState('');
     const [contact,setContact] = useState('');
     const [emailError, setEmailError] = useState('');
-    
-    const navigate = useNavigate();
-
-    const validateItemCode = (value) => {
-        return /^SU\d{6}$/.test(value);
-    };
+  
     const validateSupplierName = (value) => {
         return /^[a-zA-Z\s]+$/.test(value);
     };
@@ -33,10 +37,7 @@ function CreateUser() {
     const Submit = (e) => {
         e.preventDefault();
 
-        if (!validateItemCode(sid)) {
-            alert('Invalid/missing Supplier ID');
-            return;
-        }
+        
         if (!validateSupplierName(name)) {
             alert('Invalid/missing Supplier Name');
             return;
@@ -62,14 +63,15 @@ function CreateUser() {
     };
 
     return (
-        <div className='d-flex vh-100 justify-content-center align-items-center' style={{ backgroundColor: '#e9ecef'}}>
+        
+        <div className='d-flex vh-100 justify-content-center align-items-center' style={{ background: 'linear-gradient(to top, white, white)'}}>
             
-            <div className='w-50 bg-white rounded p-3' style={{ fontWeight: 'bold' }}>
+            <div className='w-50 bg-white rounded p-3' style={{ fontWeight: 'bold',background: 'linear-gradient(to top, silver, white)'}}>
                 <form onSubmit={Submit}>
                     <h2 style={{ color: 'black' , fontWeight:'bold'}}>Add Supplier Information</h2><br />
                     <div className='mb-2'>
                         <label htmlFor="sid">Supplier ID</label>
-                        <input type="text" placeholder='SU000000' className='form-control' onChange={(e) => setSid(e.target.value.toUpperCase())} required/>
+                        <input type="text" value={sid} className='form-control' onChange={(e) => setSid(e.target.value.toUpperCase())} readOnly/>
                     </div>
 
                     <div className='mb-2'>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 function UpdateUser() {
 
@@ -11,6 +12,7 @@ function UpdateUser() {
     const [district, setDistrict] = useState('');
     const [email, setEmail] = useState('');
     const [contact, setContact] = useState('');
+    const [emailError, setEmailError] = useState('');
    
     const navigate = useNavigate();
 
@@ -28,9 +30,7 @@ function UpdateUser() {
             .catch(err => console.log(err));
     }, [])
 
-    const validateItemCode = (value) => {
-        return /^SU\d{6}$/.test(value);
-    };
+    
     const validateSupplierName = (value) => {
         return /^[a-zA-Z\s]+$/.test(value);
     };
@@ -54,10 +54,7 @@ function UpdateUser() {
             })
             .catch(err => console.log(err));
             
-            if (!validateItemCode(sid)) {
-                alert('Invalid/missing Supplier ID');
-                return;
-            }
+          
             if (!validateSupplierName(name)) {
                 alert('Invalid/missing Supplier Name');
                 return;
@@ -80,9 +77,9 @@ function UpdateUser() {
             <div className='w-50 bg-white rounded p-3' style={{ fontWeight: 'bold' }}>
                 <form onSubmit={Update}>
                 <h2 style={{ color: 'black'}}>Update Supplier Information</h2><br />
-                    <div className='mb-2'>
+                <div className='mb-2'>
                         <label htmlFor="sid">Supplier ID</label>
-                        <input type="text" placeholder='SU000000' className='form-control' value={sid} onChange={(e) => setSid(e.target.value.toUpperCase())} required/>
+                        <input type="text" placeholder='SU000000' className='form-control' value={sid} onChange={(e) => setSid(e.target.value.toUpperCase())} readOnly/>
                     </div>
 
                     <div className='mb-2'>
